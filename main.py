@@ -6,16 +6,17 @@ def pizza_price():
     Write your customer prompt here
     """)
     
+    requested_toppings = requested_toppings.uppewr
+    
     base_price = 15
     toppings_price = 0
-
-    # tomatoes (+$1.50),
-    # onions (+$1.25),
-    # pineapple (+$3.50),
-    # mushrooms (+$3.75), and
-    # avocado (+$0.40).
+    calculated_toppings = []
 
     for topping in requested_toppings:
+        
+        # Skip toppings we've already calculated
+        if topping in calculated_toppings:
+            continue
         
         if topping == "T":
             toppings_price += 1.5
@@ -29,5 +30,20 @@ def pizza_price():
         if topping == "M":
             toppings_price += 3.75 
             
-         if topping == "A":
-            toppings_price += .40    
+        if topping == "A":
+            toppings_price += .40
+          
+        # Add topping to calculated list
+        calculated_toppings += topping
+            
+    total_price = base_price + toppings_price
+    
+    if total_price > 20:
+        total_price = total_price * .95
+        
+    total_price = round(total_price, 2)
+
+    print(total_price)
+    
+pizza_price()
+
