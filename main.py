@@ -6,7 +6,8 @@ def pizza_price():
     Write your customer prompt here
     """)
     
-    requested_toppings = requested_toppings.uppewr
+    requested_toppings = requested_toppings.upper()
+    print(f"You requested: {requested_toppings}")
     
     base_price = 15
     toppings_price = 0
