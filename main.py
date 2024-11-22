@@ -47,4 +47,3 @@ def pizza_price():
     print(total_price)
     
 pizza_price()
-
